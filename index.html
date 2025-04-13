@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+          <div class="logo">Shail Pradhan</div>
+          <div class="hamburger" id="hamburger">
+            ☰
+          </div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+      
+
+    <!--Home section-->
+    <section id="home">
+        <h1>Hi, I'm Shail Pradhan</h1>
+        <p>I'm a computer science student with a passion for AI and machine learning.</p>
+    </section>
+  
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am currently pursuing B.Tech in Artificial Intelligence and Machine Learning at SMIT, focusing on DSA, app development, and AI-based applications.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-card">
+            <h3>Hand Gesture Recognition</h3>
+            <p>Developed a machine learning model for recognizing Nepali hand gestures.</p>
+        </div>
+        <div class="project-card">
+            <h3>Food Ordering Website</h3>
+            <p>Built a functional e-commerce platform for ordering food using the MERN stack.</p>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+        <h2>Resume</h2>
+        <a href="Shail-Pradhan-Summer-Intern-CV.pdf" download>Download My Resume</a>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>If you’d like to discuss a project, ask a question, or just say hi, feel free to drop a message below.</p>
+        
+        <form id="contact-form" action="https://formspree.io/f/xjvowzqk" method="POST">
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+          </div>
+      
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+      
+
+    <footer>
+        <p>&copy; 2025 Shail Pradhan. All rights reserved.</p>
+    </footer>
+
+    <script>
+        
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("nav-links");
+
+        // Toggle menu when hamburger is clicked
+        hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+        });
+
+        // Hide menu when any link is clicked (on small screens)
+        document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            if (navLinks.classList.contains("show")) {
+            navLinks.classList.remove("show");
+            }
+        });
+        });
+
+    </script>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+          emailjs.init("EMAILJS_PUBLIC_KEY");
+        })();
+    </script>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+    
+        // Send the form data to EmailJS
+        emailjs.sendForm("EMAILJS_SERVICE_ID", "EMAILJS_TEMPLATE_I", this)
+            .then(() => {
+            // If the email was successfully sent
+            alert("Message sent successfully!");
+            this.reset(); // Reset the form fields
+            }, (error) => {
+            // If there was an error sending the email
+            alert("Failed to send message. Please try again later.");
+            console.error(error); // Log error for debugging
+            });
+        });
+    </script>
+  
+      
+</body>
+</html>
