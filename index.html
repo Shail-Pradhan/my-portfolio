@@ -114,7 +114,7 @@
         event.preventDefault(); // Prevent the form from submitting normally
     
         // Send the form data to EmailJS
-        emailjs.sendForm("EMAILJS_SERVICE_ID", "EMAILJS_TEMPLATE_I", this)
+        emailjs.sendForm("EMAILJS_SERVICE_ID", "EMAILJS_TEMPLATE_ID", this)
             .then(() => {
             // If the email was successfully sent
             alert("Message sent successfully!");
