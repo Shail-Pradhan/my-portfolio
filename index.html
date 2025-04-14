@@ -20,6 +20,13 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="#resume">Resume</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li>
+              <a href="https://github.com/Shail-Pradhan" target="_blank" class="github-link" style="align-items: center;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="github-icon">
+                GitHub
+              </a>
+            </li>
+             
           </ul>
         </nav>
       </header>
@@ -28,27 +35,33 @@
 
     <!--Home section-->
     <section id="home">
-        <h1>Hi, I'm Shail Pradhan</h1>
+        <h1>Hi, I'm <span>Shail Pradhan</span></h1>
         <p>I'm a computer science student with a passion for AI and machine learning.</p>
     </section>
   
     <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p>I am currently pursuing B.Tech in Artificial Intelligence and Machine Learning at SMIT, focusing on DSA, app development, and AI-based applications.</p>
+        <p>I am currently pursuing B.Tech in Artificial Intelligence and Machine Learning at SMIT, focusing on DSA, web development, and AI-based applications.</p>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
         <h2>My Projects</h2>
         <div class="project-card">
-            <h3>Hand Gesture Recognition</h3>
-            <p>Developed a machine learning model for recognizing Nepali hand gestures.</p>
+            <h3>Web-based Hand Gesture Recognition</h3>
+            <p>Enhanced a MediaPipe hand landmarks model for recognizing Nepali hand gestures (numbers) and integrated it into a web application using React.js for the frontend and Python (Flask) for backend inference. Helped people with speaking disability to communicate effectively using sign language inferences.</p>
         </div>
         <div class="project-card">
-            <h3>Food Ordering Website</h3>
-            <p>Built a functional e-commerce platform for ordering food using the MERN stack.</p>
+            <h3>Book Recommendation System Using Python</h3>
+            <p>Implemented a machine learning-based (k-nearest neighbor) book recommendation system using collaborative filtering and deployed using Flask and StreamLit onto the web. Saved time for the users by recommending similar books based on past preferences.</p>
         </div>
+        <div class="project-card">
+            <h3>Custom Search Engine with Filtering using Python</h3>
+            <p>Designed and implemented a Python-based search engine with advanced filtering 
+              capabilities. Utilized web scraping, indexing, and ranking algorithms for efficient information 
+              retrieval. Implemented custom filters for keyword relevance, date, and category-based 
+              search refinement. Advantages: Enhanced search precision, optimized query performance, and modular scalability.</p>
     </section>
 
     <!-- Resume Section -->
@@ -100,32 +113,39 @@
         });
         });
 
-    </script>
-
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function() {
-          emailjs.init("EMAILJS_PUBLIC_KEY");
-        })();
-    </script>
-
-    <script>
-        document.getElementById("contact-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent the form from submitting normally
-    
-        // Send the form data to EmailJS
-        emailjs.sendForm("EMAILJS_SERVICE_ID", "EMAILJS_TEMPLATE_ID", this)
-            .then(() => {
-            // If the email was successfully sent
-            alert("Message sent successfully!");
-            this.reset(); // Reset the form fields
-            }, (error) => {
-            // If there was an error sending the email
-            alert("Failed to send message. Please try again later.");
-            console.error(error); // Log error for debugging
-            });
+        document.addEventListener("click", (event) => {
+        if (
+          !navLinks.contains(event.target) &&
+          !hamburger.contains(event.target)) 
+        {
+          navLinks.classList.remove("show");
+        }
         });
+
     </script>
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+
+    (function () {
+      emailjs.init("RFijzyHTTCr7MAe6b");
+    })();
+
+    // Handle form submission
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault(); 
+
+      emailjs.sendForm("service_jav3bkn", "template_uuzxzbg", this)
+        .then(function () {
+          alert("Message sent successfully!");
+          document.getElementById("contact-form").reset();
+        }, function (error) {
+          alert("Failed to send message. Please try again later.");
+          console.error("EmailJS Error:", error);
+        });
+    });
+  </script>
+
   
       
 </body>

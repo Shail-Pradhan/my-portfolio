@@ -87,6 +87,37 @@ header {
     color: #007BFF;
     border-bottom: 2px solid #007BFF;
   }
+
+  .github-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .github-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+  
+  
+  .github-link:hover {
+    color: #6e5494; /* GitHub purple */
+  }
+  
+  .github-icon {
+    width: 20px;
+    height: 20px;
+    filter: invert(20%);
+    transition: filter 0.3s ease;
+  }
+  
+  .github-link:hover .github-icon {
+    filter: invert(35%) sepia(20%) saturate(500%) hue-rotate(220deg);
+  }
+  
   
   
   /* Home Section */
@@ -149,6 +180,10 @@ header {
     text-align: left;
 }
 
+.span {
+    font-weight: 600;
+    color: #007BFF;
+  }
   
   label {
     font-weight: 600;
@@ -219,32 +254,47 @@ header {
   }
   
   /* Responsive styles */
-  @media (max-width: 768px) {
-    .hamburger {
-      display: block;
-    }
   
+  @media (max-width: 768px) {
     .nav-links {
-      position: absolute;
-      top: 70px;
-      left: 0;
-      width: 100%;
-      background: #ffffff;
+      position: fixed;
+      top: 60px;
+      right: -100%;
+      width: 60%;
+      height: 100vh;
+      background-color: #fff;
       flex-direction: column;
       align-items: center;
-      display: none;
-      padding: 10px 0;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      justify-content: flex-start;
+      padding-top: 2rem;
+      transition: right 0.3s ease-in-out;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     }
   
     .nav-links.show {
-      display: flex;
+      right: 0;
     }
+  
+    .nav-links li {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .nav-links a {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    
+      .hamburger {
+        display: block;
+      }
+    
   
     .nav-links li {
       margin: 10px 0;
     }
-  }
+
   
   
     .project-card {
@@ -266,3 +316,4 @@ header {
     button {
       width: 100%;
     }
+  }
